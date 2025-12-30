@@ -1,16 +1,47 @@
-# React + Vite
+# StreakFlow - Habit Tracker (Day 3)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a habit tracking application developed as part of my 45-day software engineering challenge. The goal was to build a functional, product-oriented application that handles date-based logic and local data persistence without relying on a backend.
 
-Currently, two official plugins are available:
+Live Demo: https://day03-streakflow-msrf.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview
 
-## React Compiler
+StreakFlow allows users to track daily habits and maintain streaks. Unlike simple to-do lists, this application implements specific logic to calculate streaks based on calendar dates. If a user misses a day, the streak resets automatically.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Features
 
-## Expanding the ESLint configuration
+- **Streak Algorithm:** The application compares the current date with the last completed date. It automatically detects if a day was missed and resets the streak count to zero, or increments it if the habit is maintained consecutively.
+- **Data Persistence:** All user data is stored in the browser's Local Storage. This ensures that habits and streaks are preserved even after the page is refreshed or the browser is closed.
+- **Single Page Interface:** The application features a smooth-scrolling landing page that transitions seamlessly into the dashboard.
+- **Responsive Design:** The UI is built with pure CSS using a component-based approach, ensuring it works across different screen sizes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technical Implementation
+
+Date Handling:
+To avoid issues with timezones and timestamps, all dates are converted and stored as string formats (YYYY-MM-DD). This makes comparison logic for "Yesterday" vs "Today" reliable and bug-free.
+
+State Management:
+I utilized React's `useState` for handling the application state and `useEffect` to synchronize this state with Local Storage. Upon loading, the app runs a validation check to update streak statuses before rendering the UI.
+
+## Technology Stack
+
+- Frontend: React.js (Vite)
+- Styling: Pure CSS (CSS Variables, Flexbox, Glassmorphism effects)
+- Utilities: UUID for unique key generation
+
+## Installation and Setup
+
+1. Clone the repository
+   git clone https://github.com/VYANKEE/streakflow-day3.git
+
+2. Navigate to the project directory
+   cd streakflow-day3
+
+3. Install dependencies
+   npm install
+
+4. Run the development server
+   npm run dev
+
+---
+Developed by Vyankee as part of the 45-Day Engineering Challenge.
